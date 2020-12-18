@@ -25,6 +25,7 @@ $ pip3 install tensorflow
 
 ### How to run the code
 Run the main.py file to execute all four tasks, on root directory
+If any changes are made to names for folders inside Datasets/, please change it accordingly in main.py with new dirs
 ```
 $ python3 main.py
 ```

@@ -16,7 +16,7 @@ params = {'kernel': ['poly'], 'C': [1, 10, 100], 'degree': [2, 3, 4, 5]}
 # Task A1 - Gender Detection
 
 model_A1 = GenderDetection(pre_processor_1, binary)
-X_train, X_test, y_train, y_test = model_A1.feature_extraction('celeba/img')  # Data pre processing
+X_train, X_test, y_train, y_test = model_A1.feature_extraction('celeba/img')  # Data pre processing, passed the dir for images
 acc_A1_train, clf = model_A1.train(X_train, y_train, params)  # Train model based on the training set
 acc_A1_test = model_A1.test(X_test, y_test, clf)  # Test model based on the test set
 
@@ -27,7 +27,7 @@ acc_A1_test_extra = model_A1.test(X_test_extra, y_test_extra, clf)  # Test addit
 # Task A2 - Emotion Detection
 
 model_A2 = EmotionDetection(pre_processor_1, binary)
-X_train, X_test, y_train, y_test = model_A2.feature_extraction('celeba/img')  # Data pre processing
+X_train, X_test, y_train, y_test = model_A2.feature_extraction('celeba/img')  # Data pre processing, passed the dir for images
 acc_A2_train, clf = model_A2.train(X_train, y_train, params)  # Train model based on the training set
 acc_A2_test = model_A2.test(X_test, y_test, clf)  # Test model based on the test set
 
@@ -39,7 +39,7 @@ acc_A2_test_extra = model_A2.test(X_test_extra, y_test_extra, clf)  # Test addit
 params = {'kernel': ['poly'], 'C': [10, 100, 1000], 'degree': [2, 3, 4, 5, 6]}
 
 model_B1 = FaceShapeDetection(pre_processor_1, multiclass)
-X_train, X_test, y_train, y_test = model_B1.feature_extraction('cartoon_set/img')
+X_train, X_test, y_train, y_test = model_B1.feature_extraction('cartoon_set/img')  # Data pre processing, passed the dir for images
 acc_B1_train, clf = model_B1.train(X_train, y_train, params)
 acc_B1_test = model_B1.test(X_test, y_test, clf)
 
@@ -50,7 +50,7 @@ acc_B1_test_extra = model_B1.test(X_test_extra, y_test_extra, clf)  # Test addit
 # Task B2 - Eye Color Detection
 
 model_B2 = EyeColorDetection(pre_processor_1, multiclass)
-X_train, X_test, y_train, y_test = model_B2.feature_extraction('cartoon_set/img')
+X_train, X_test, y_train, y_test = model_B2.feature_extraction('cartoon_set/img') # Data pre processing, passed the dir for images
 acc_B2_train, clf = model_B2.train(X_train, y_train, params)
 acc_B2_test = model_B2.test(X_test, y_test, clf)
 
