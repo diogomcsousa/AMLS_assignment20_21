@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import learning_curve
 
-
+# Obtain Learning curve plot
 class DataAnalysis:
     @staticmethod
     def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,

@@ -11,11 +11,13 @@ def learning_curve(estimator, X, Y):
     plt.show()
 
 
+# Classifier for binary classification problems with SVM
 class BinaryClassifier:
     def __init__(self):
         self.clf = svm.SVC()
 
     def fit(self, X, Y, params):
+        # Perform hyper-parameter tuning through k-fold cross-validation
         classifier = GridSearchCV(self.clf, params, return_train_score=True, n_jobs=-1)
 
         classifier.fit(X, Y)
@@ -34,11 +36,14 @@ class BinaryClassifier:
         return accuracy_score(Y, pred)
 
 
+# Classifier for multiclass classification problems
+# Use SVM adaption with one-vs-one multiclass classification
 class MultiClassClassifier:
     def __init__(self):
         self.clf = svm.SVC(decision_function_shape='ovo')
 
     def fit(self, X, Y, params):
+        # Perform hyper-parameter tuning through k-fold cross-validation
         classifier = GridSearchCV(self.clf, params, cv=5, return_train_score=True, n_jobs=-1)
 
         classifier.fit(X, Y)

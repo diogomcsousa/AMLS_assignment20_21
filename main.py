@@ -1,4 +1,3 @@
-import numpy as np
 from A1.a1_task import GenderDetection
 from A2.a2_task import EmotionDetection
 from B1.b1_task import FaceShapeDetection

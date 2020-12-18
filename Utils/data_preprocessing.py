@@ -22,6 +22,7 @@ class PreProcessor:
         # return the list of (x, y)-coordinates
         return coords
 
+    # Add to X_final only the wanted regions
     def region_shape(self, img, region):
         temp_shape = []
         for reg in region:
@@ -38,6 +39,7 @@ class PreProcessor:
             img_name = img_path.split('.')[1].split('/')[-1]
             image = face_recognition.load_image_file(img_path)
 
+            # Obtain object containing facial landmarks
             face_landmarks_list = face_recognition.face_landmarks(image)
 
             # Skip non detected faces
@@ -70,6 +72,7 @@ class PreProcessor:
             img_name = img_path.split('.')[1].split('/')[-1]
             image = face_recognition.load_image_file(img_path)
 
+            # Obtain 128-Dimensional face encoding for each face in image
             face_encoding = face_recognition.face_encodings(image)
 
             # Skip non detected faces and multiple face images
@@ -92,6 +95,7 @@ class PreProcessor:
         else:
             return self.region_extraction(image_paths, labels, region, extra_test)
 
+    # Perform Haar cascade feature extraction for eye color detection
     def haar_cascade_feature_extraction(self, label, images_dir, extra_test):
         img_dir = os.path.join(basedir, images_dir)
         label_dir = images_dir.split('/')[0]
@@ -108,6 +112,7 @@ class PreProcessor:
             img = cv2.imread(path)
             eyes = haar_cascade.detectMultiScale(img, 1.3, 3)
             if len(eyes):
+                # Crop image to get just the left eye area (both eyes will have the same color)
                 x, y, w, h = eyes[0]
                 cropped_img = img[y:y + h, x:x + w]
                 cropped_img = cv2.resize(cropped_img, dsize=(25, 25))
